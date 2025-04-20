@@ -9,14 +9,14 @@ import VendorForm from "../component/VendorForm";
 const initialVendors = [
   {
     id: 1,
-    name: "ABC Corporation",
+    name: "BK Corporation",
     bankAccountNo: "123456789012",
-    bankName: "Chase Bank",
+    bankName: "BK Bank",
     addressLine1: "123 Business St",
     addressLine2: "Suite 101",
-    city: "New York",
-    country: "USA",
-    zipCode: "10001",
+    city: "Morena",
+    country: "INDIA",
+    zipCode: "476001",
   },
   {
     id: 2,
