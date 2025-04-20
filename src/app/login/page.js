@@ -1,11 +1,11 @@
-// src/app/login/page.js
 "use client";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function Login() {
+// Create a separate component that uses useSearchParams
+function LoginContent() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -83,5 +83,22 @@ export default function Login() {
         )}
       </div>
     </div>
+  );
+}
+
+// Fallback component for Suspense
+function LoginFallback() {
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <h1 className="text-xl">Loading login page...</h1>
+    </div>
+  );
+}
+
+export default function Login() {
+  return (
+    <Suspense fallback={<LoginFallback />}>
+      <LoginContent />
+    </Suspense>
   );
 }
